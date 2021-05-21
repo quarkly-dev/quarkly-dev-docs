@@ -44,7 +44,7 @@ export default (() => {
 						🖐
 Welcome
 					</Override>
-					<Override slot="helpLink" href="/welcome-for-dev" />
+					<Override slot="helpLink" href="index/welcome-for-dev" />
 				</Components.HelpOverviewItem>
 				<Components.HelpOverviewItem>
 					<Override slot="helpHeader3">

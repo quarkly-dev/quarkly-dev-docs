@@ -708,6 +708,7 @@ const List = ({
 	override,
 	...rest
 }) => {
+	console.log(JSON.parse(JSON.stringify(pages)), '???');
 	const rootPage = pages?.[rootId];
 	const common = {
 		pages,
@@ -733,6 +734,7 @@ const Menu = ({
 }) => {
 	const pages = getAPI().pages || {};
 	let path = [];
+	console.log(pages, '???');
 
 	if (rootId !== 'root') {
 		let parent = pages[rootId];
@@ -897,9 +899,16 @@ const propInfo = {
 		weight: 1
 	},
 	rootId: {
-		title: 'Root ID',
-		control: 'input',
+		title: 'Root Page',
+		control: 'select',
 		category: 'Menu',
+		variants: Object.values(getAPI().pages || {}).map(({
+			pageUrl,
+			id
+		}) => ({
+			title: pageUrl,
+			value: id
+		})),
 		weight: 1
 	},
 	tabState: {
@@ -919,7 +928,7 @@ const defaultProps = {
 	"tabState": "Expand before active item",
 	"md-width": "0%",
 	"md-min-width": 0,
-	"rootId": "607d35566381680022816c19"
+	"rootId": "root"
 };
 export default Object.assign(Panel, {
 	title: 'SideBar Menu',
